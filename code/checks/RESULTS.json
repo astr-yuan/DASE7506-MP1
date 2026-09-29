@@ -1,0 +1,50 @@
+{
+  "completed_utc": "2026-09-29T09:56:28.680806+00:00",
+  "bpb": 1.632893777909,
+  "repeat_bpbs": [
+    1.632893777909,
+    1.632893777909,
+    1.632893777909
+  ],
+  "baseline_bpb": 2.1012604380869244,
+  "validation_bpb": 1.6186115943174746,
+  "copy_off_validation_bpb": 1.6615916361689007,
+  "best_config": {
+    "vocab": 2048,
+    "width": 128,
+    "heads": 4,
+    "depth": 4,
+    "context": 256,
+    "copy_alpha": 0.25,
+    "copy_order": 2,
+    "copy_smoothing": 2.0
+  },
+  "baseline_validation_bpb": 2.071083638533899,
+  "initial_validation_bpb": 1.9223254395134024,
+  "new_training_targets": 108134400,
+  "historical_unique_training_targets_including_this_run": 177032192,
+  "initial_train_seconds": 392.2253977000946,
+  "extension_train_seconds": 3706.250659204379,
+  "median_cpu_ratio": 2.2438495180112183,
+  "worst_cpu_ratio": 2.2857405314533783,
+  "peak_ram_gib": 1.5771293640136719,
+  "inference_assets_bytes": 4247333,
+  "checkpoint_sha256": "d3e5c75ecd51b20ab4bf6668113530faae8c4725c7144db714ca71b09a17a569",
+  "checks": {
+    "protected_files_unchanged": true,
+    "frozen_files_unchanged": true,
+    "unit_tests": true,
+    "actual_checkpoint_contract": true,
+    "same_budget_comparison": true,
+    "same_weights_ablation": true,
+    "full_test_targets": true,
+    "repeat_score_exact": true,
+    "cpu_limit": true,
+    "ram_limit": true,
+    "assets_limit": true,
+    "bpb_below_baseline": true,
+    "fresh_directory_reproduction": true,
+    "report_page_limit": true
+  },
+  "report_pages": 4
+}

@@ -1,0 +1,17 @@
+{
+  "created_utc": "2026-09-29T08:39:53.643570+00:00",
+  "initial_steps": 1200,
+  "initial_seed": 17,
+  "extension_steps": 12000,
+  "extension_seed": 23,
+  "batch_size": 32,
+  "context": 256,
+  "lr": 0.0006,
+  "eval_every": 600,
+  "average_start": 6000,
+  "average_every": 100,
+  "selection_split": "validation",
+  "test_policy": "freeze then test, no test-driven changes",
+  "planned_new_training_targets": 108134400,
+  "baseline": "Reused original verified seed-17 1200-step baseline"
+}

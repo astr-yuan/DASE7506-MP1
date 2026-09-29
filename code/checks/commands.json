@@ -1,0 +1,196 @@
+[
+  {
+    "stage": "unit-tests",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-v"
+    ],
+    "seconds": 2.352189500001259,
+    "returncode": 0
+  },
+  {
+    "stage": "initial-training",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "train.py",
+      "--implementation",
+      "student",
+      "--device",
+      "cpu",
+      "--precision",
+      "fp32",
+      "--threads",
+      "4",
+      "--seed",
+      "17",
+      "--steps",
+      "1200",
+      "--eval-every",
+      "300",
+      "--run-dir",
+      "runs/retrain-initial"
+    ],
+    "seconds": 435.5210556999664,
+    "returncode": 0
+  },
+  {
+    "stage": "extended-training",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "train.py",
+      "--stage",
+      "continue",
+      "--parent",
+      "runs/retrain-initial/checkpoint.pt",
+      "--run-dir",
+      "runs/retrain-extended-12000",
+      "--steps",
+      "12000",
+      "--batch-size",
+      "32",
+      "--seed",
+      "23",
+      "--threads",
+      "4",
+      "--device",
+      "cpu",
+      "--precision",
+      "fp32",
+      "--lr",
+      "0.0006",
+      "--eval-every",
+      "600",
+      "--average-start",
+      "6000",
+      "--average-every",
+      "100"
+    ],
+    "seconds": 3907.5714230999583,
+    "returncode": 0
+  },
+  {
+    "stage": "validation-selection",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "train.py",
+      "--stage",
+      "select",
+      "--checkpoint",
+      "runs/retrain-extended-12000/checkpoint.pt",
+      "--output-dir",
+      "runs/retrain-selected-12000",
+      "--device",
+      "cpu"
+    ],
+    "seconds": 118.50757389998762,
+    "returncode": 0
+  },
+  {
+    "stage": "checkpoint-contract",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "check_checkpoint.py",
+      "--checkpoint",
+      "runs/retrain-selected-12000/checkpoint.pt",
+      "--output",
+      "checks/checkpoint_contract.json"
+    ],
+    "seconds": 2.0559427999542095,
+    "returncode": 0
+  },
+  {
+    "stage": "baseline-1",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/baseline/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/baseline-1.json"
+    ],
+    "seconds": 16.13749110000208,
+    "returncode": 0
+  },
+  {
+    "stage": "student-1",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/retrain-selected-12000/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/student-1.json"
+    ],
+    "seconds": 24.989178500021808,
+    "returncode": 0
+  },
+  {
+    "stage": "baseline-2",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/baseline/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/baseline-2.json"
+    ],
+    "seconds": 22.465171099989675,
+    "returncode": 0
+  },
+  {
+    "stage": "student-2",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/retrain-selected-12000/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/student-2.json"
+    ],
+    "seconds": 25.629426100000273,
+    "returncode": 0
+  },
+  {
+    "stage": "baseline-3",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/baseline/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/baseline-3.json"
+    ],
+    "seconds": 16.414710299985018,
+    "returncode": 0
+  },
+  {
+    "stage": "student-3",
+    "command": [
+      "E:\\Documents\\HK\\DASE7506\\MP1_student_starter\\code\\.venv\\Scripts\\python.exe",
+      "measure_cpu.py",
+      "--checkpoint",
+      "runs/retrain-selected-12000/checkpoint.pt",
+      "--split",
+      "test",
+      "--output",
+      "checks/student-3.json"
+    ],
+    "seconds": 24.900639800005592,
+    "returncode": 0
+  }
+]

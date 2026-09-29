@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "checkpoint_sha256": "d3e5c75ecd51b20ab4bf6668113530faae8c4725c7144db714ca71b09a17a569",
+  "parameters": 1055488,
+  "checks": [
+    "full-context future-token causality",
+    "batch independence",
+    "call state reset",
+    "short-prefix consistency",
+    "finite normalized probabilities",
+    "exact same-weight copy-off ablation"
+  ],
+  "original_and_custom_tests_passed": 9
+}
